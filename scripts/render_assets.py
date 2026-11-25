@@ -114,6 +114,7 @@ def banner(cfg: dict, t: dict[str, str]) -> str:
     top = cy - STAGE_H / 2
 
     # Percent of the cycle at which the pulse crosses each stage's centre.
+    rail_y = top + STAGE_H + 12  # progress rail under the stages; the pulse rides it
     lit_at = [round((i * (STAGE_W + STAGE_GAP) + STAGE_W / 2) / total * PULSE_END, 1) for i in range(n)]
     done_at = round(lit_at[-1] + 4, 1)
 
@@ -136,6 +137,9 @@ def banner(cfg: dict, t: dict[str, str]) -> str:
         f"{num(PULSE_END)}%{{transform:translateX({num(total)}px);opacity:1}}"
         f"{num(PULSE_END + 4)}%,100%{{transform:translateX({num(total)}px);opacity:0}}}}"
         f".pulse{{animation:pulse {CYCLE_S}s linear infinite}}"
+        f"@keyframes progress{{0%{{transform:scaleX(0);opacity:1}}{num(PULSE_END)}%,{num(HOLD_UNTIL)}%"
+        f"{{transform:scaleX(1);opacity:1}}{num(RESET_AT)}%,100%{{transform:scaleX(1);opacity:0}}}}"
+        f".progress{{transform-box:fill-box;transform-origin:0 50%;animation:progress {CYCLE_S}s linear infinite}}"
         f"@keyframes status{{0%,{num(done_at - 0.1)}%{{opacity:0}}{num(done_at)}%,{num(HOLD_UNTIL)}%{{opacity:1}}"
         f"{num(RESET_AT)}%,100%{{opacity:0}}}}"
         f".status{{animation:status {CYCLE_S}s linear infinite}}"
@@ -144,7 +148,7 @@ def banner(cfg: dict, t: dict[str, str]) -> str:
         + "".join(keyframes)
         # Without motion, show the finished run: every stage green, status visible.
         + "@media (prefers-reduced-motion:reduce){.pulse{display:none}"
-        ".pulse,.status,.cursor,[class*=box],[class*=dot]{animation:none}}"
+        ".pulse,.progress,.status,.cursor,[class*=box],[class*=dot]{animation:none}}"
     )
 
     prompt = b["prompt"]
@@ -201,9 +205,13 @@ def banner(cfg: dict, t: dict[str, str]) -> str:
             f'fill="{t["text"]}">{escape(name.upper())}</text>',
         ]
     parts += [
-        f'<circle class="pulse" cx="{num(x0)}" cy="{cy}" r="5" fill="{t["accent"]}"/>',
-        f'<g class="status"><circle cx="{num(x0 + 4)}" cy="{cy + STAGE_H / 2 + 26}" r="4" fill="{t["ok"]}"/>'
-        f'<text class="mono" x="{num(x0 + 16)}" y="{cy + STAGE_H / 2 + 30}" font-size="12" fill="{t["muted"]}">'
+        f'<line x1="{num(x0)}" y1="{num(rail_y)}" x2="{num(x0 + total)}" y2="{num(rail_y)}" '
+        f'stroke="{t["stage_off"]}" stroke-width="2" stroke-linecap="round"/>',
+        f'<rect class="progress" x="{num(x0)}" y="{num(rail_y - 1)}" width="{num(total)}" height="2" rx="1" '
+        f'fill="{t["accent"]}"/>',
+        f'<circle class="pulse" cx="{num(x0)}" cy="{num(rail_y)}" r="4.5" fill="{t["accent"]}"/>',
+        f'<g class="status"><circle cx="{num(x0 + 4)}" cy="{num(rail_y + 24)}" r="4" fill="{t["ok"]}"/>'
+        f'<text class="mono" x="{num(x0 + 16)}" y="{num(rail_y + 28)}" font-size="12" fill="{t["muted"]}">'
         f"main · {n}/{n} stages passed</text></g>",
         "</svg>",
     ]
