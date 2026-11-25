@@ -1,0 +1,104 @@
+# Source of truth for the generated parts of this profile.
+#
+#   make assets   re-renders assets/*.svg from this file
+#   make check    fails if the committed SVGs no longer match it (CI runs this)
+#
+# The "Recently active" table in README.md is rebuilt daily by
+# .github/workflows/refresh.yml from the public repositories of `login`.
+
+login = "rajesh6752"
+
+[banner]
+name = "Rajesh Shukla"
+title = "DevOps & Cloud Platform Engineer"
+tagline = "Kubernetes · AWS · Terraform · GitOps · Observability"
+prompt = "$ whoami"
+# One stage per "How I work" principle in README.md.
+stages = ["plan", "build", "ship", "operate"]
+
+[recent]
+limit = 5
+# Repositories not pushed to for longer than this drop out of the table.
+max_age_days = 540
+# Never listed, even when recently pushed.
+exclude = [
+  "rajesh6752",
+  "Thanos",
+  "tf-examples",
+  "Kubefiles",
+  "covidtracker",
+  "corona-traiker",
+  "haikus-for-codespaces",
+  "portfolio",
+]
+
+# Toolbelt rows, top to bottom. `icon` is a key in assets/icons.json;
+# items without one get a neutral hexagon so the rhythm of the row holds.
+[[toolbelt]]
+label = "Cloud"
+items = [
+  { name = "AWS" },
+  { name = "Azure" },
+  { name = "Google Cloud", icon = "googlecloud" },
+]
+
+[[toolbelt]]
+label = "Platform"
+items = [
+  { name = "Kubernetes", icon = "kubernetes" },
+  { name = "Karpenter" },
+  { name = "Helm", icon = "helm" },
+  { name = "Istio", icon = "istio" },
+  { name = "Kong", icon = "kong" },
+  { name = "Docker", icon = "docker" },
+]
+
+[[toolbelt]]
+label = "Infra as code"
+items = [
+  { name = "Terraform", icon = "terraform" },
+  { name = "Terragrunt" },
+  { name = "CloudFormation" },
+  { name = "Ansible", icon = "ansible" },
+]
+
+[[toolbelt]]
+label = "Delivery"
+items = [
+  { name = "GitHub Actions", icon = "githubactions" },
+  { name = "Jenkins", icon = "jenkins" },
+  { name = "Argo CD", icon = "argo" },
+  { name = "SonarQube", icon = "sonarqubeserver" },
+  { name = "Trivy", icon = "trivy" },
+]
+
+[[toolbelt]]
+label = "Observability"
+items = [
+  { name = "Prometheus", icon = "prometheus" },
+  { name = "Grafana", icon = "grafana" },
+  { name = "Loki" },
+  { name = "Fluent Bit", icon = "fluentbit" },
+  { name = "Elastic", icon = "elastic" },
+  { name = "CloudWatch" },
+]
+
+[[toolbelt]]
+label = "Data"
+items = [
+  { name = "PostgreSQL", icon = "postgresql" },
+  { name = "MySQL", icon = "mysql" },
+  { name = "MongoDB", icon = "mongodb" },
+  { name = "Redis", icon = "redis" },
+  { name = "Kafka", icon = "apachekafka" },
+]
+
+[[toolbelt]]
+label = "Automation"
+items = [
+  { name = "Python", icon = "python" },
+  { name = "Bash", icon = "gnubash" },
+  { name = "n8n", icon = "n8n" },
+  { name = "LangChain", icon = "langchain" },
+  { name = "OpenAI API" },
+]
