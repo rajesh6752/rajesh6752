@@ -186,7 +186,7 @@ def banner(cfg: dict, t: dict[str, str]) -> str:
         f'fill="url(#name)">{escape(b["name"])}</text>',
         f'<text class="sans" x="48" y="186" font-size="22" font-weight="500" fill="{t["text"]}">'
         f"{escape(b['title'])}</text>",
-        f'<text class="mono" x="48" y="222" font-size="14" fill="{t["muted"]}">{escape(b["tagline"])}</text>',
+        f'<text class="mono" x="48" y="222" font-size="13" fill="{t["muted"]}">{escape(b["tagline"])}</text>',
         # Pipeline, right column.
         f'<text class="mono" x="{num(x0)}" y="{num(top - 16)}" font-size="11" letter-spacing="1.5" '
         f'fill="{t["muted"]}">DELIVERY PIPELINE</text>',

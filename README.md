@@ -8,7 +8,7 @@
 <a href="https://rajeshshukla.pages.dev/">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rajesh6752/rajesh6752/main/assets/banner-dark.svg">
-    <img alt="Rajesh Shukla — DevOps &amp; Cloud Platform Engineer. Kubernetes, AWS, Terraform, GitOps, observability." src="https://raw.githubusercontent.com/rajesh6752/rajesh6752/main/assets/banner-light.svg" width="100%">
+    <img alt="Rajesh Shukla — Principal DevOps &amp; CloudOps Engineer. Kubernetes, AWS, Terraform, GitOps, automation and applied AI." src="https://raw.githubusercontent.com/rajesh6752/rajesh6752/main/assets/banner-light.svg" width="100%">
   </picture>
 </a>
 
@@ -16,7 +16,7 @@
   <a href="https://rajeshshukla.pages.dev/"><b>Website</b></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://www.linkedin.com/in/rajesh-shukla-8a8078125"><b>LinkedIn</b></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://github.com/rajesh6752/karpenter-handbook"><b>Karpenter Handbook</b></a>
 </p>
 
-I build and run the platforms that product teams ship on: Kubernetes on AWS, infrastructure as code, GitOps delivery, and observability that describes what users actually experience. Hands-on since 2016 — Linux and data-centre migrations first, then cloud automation across AWS and Azure, now platform engineering and the automation around it.
+Principal DevOps & CloudOps engineer. I design and run the cloud platforms that product teams ship on — Kubernetes on AWS, infrastructure as code, GitOps delivery, observability that describes what users actually experience — and build the automation and applied AI that take operational toil off the people running them. Hands-on since 2016: Linux and data-centre migrations first, then cloud automation across AWS and Azure, now platform engineering, cloud operations and AI-assisted ops.
 
 **Right now**
 

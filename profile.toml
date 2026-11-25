@@ -10,8 +10,8 @@ login = "rajesh6752"
 
 [banner]
 name = "Rajesh Shukla"
-title = "DevOps & Cloud Platform Engineer"
-tagline = "Kubernetes · AWS · Terraform · GitOps · Observability"
+title = "Principal DevOps & CloudOps Engineer"
+tagline = "Kubernetes · AWS · Terraform · GitOps · Automation & AI"
 prompt = "$ whoami"
 # One stage per "How I work" principle in README.md.
 stages = ["plan", "build", "ship", "operate"]
